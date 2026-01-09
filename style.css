@@ -11,7 +11,7 @@
   /* Soft Gray/White */
   --clr-card-bg: #FFFFFF;
   --clr-text-main: #212121;
-  --clr-text-light: #757575;
+  --clr-text-light: #212121;
   --clr-border: #E0E0E0;
 
   --font-main: 'Cairo', sans-serif;
@@ -248,7 +248,7 @@ body[dir="rtl"] .lang-switch-container {
 .item-num {
   font-family: var(--font-main);
   font-size: 0.9em;
-  color: var(--clr-secondary);
+  color: black;
   font-weight: 400;
   margin-right: 0.5rem;
   opacity: 0.7;
