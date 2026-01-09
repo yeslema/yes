@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">مطعم coup | Gourmet Restaurant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="lang-switch-container">
+            <button class="lang-btn active" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" onclick="setLanguage('ar')">AR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+        <div class="container">
+            <h1 class="logo" data-i18n="logo"> Cafe <span> Coup </span></h1>
+            <p class="tagline" data-i18n="tagline">تجربة فريدة من المذاق الأصيل</p>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="menuTitle">Notre Menu</h2>
+                <div class="underline"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="btn-container" id="btn-container">
+                <!-- Buttons will be injected here by JS -->
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="section-center" id="menu-container">
+                <!-- Menu items will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Floating Button -->
+    <button id="qr-btn" class="qr-btn" aria-label="Show QR Code">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+    </button>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 data-i18n="scanQr">Scannez le menu</h3>
+            <div id="qr-code-display">
+                <!-- Placeholder for QR Code Image -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ExampleMenu" alt="QR Code" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p data-i18n="footerText">جميع الحقوق محفوظة © 2026 مطعم Coup</p>
+        <div class="social-links">
+            <!-- Example Social Icons (Text for now to avoid external libraries if strict) -->
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Twitter</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
