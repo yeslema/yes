@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Coffee Coup</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: var(--clr-card-bg);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid var(--clr-border);
+        }
+
+        .login-title {
+            color: var(--clr-primary);
+            font-family: var(--font-display);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            font-family: var(--font-main);
+        }
+
+        .btn-submit {
+            background-color: var(--clr-primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--clr-secondary);
+        }
+
+        .error-msg {
+            color: red;
+            margin-top: 1rem;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 1rem;
+            color: var(--clr-text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"> <span> Coup </span></h1>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2 class="login-title">Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="code" class="form-control" placeholder="Code" required>
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+                <p id="error-msg" class="error-msg">Invalid Email or Code!</p>
+            </form>
+            <a href="index.html" class="back-link">← Back to Menu</a>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

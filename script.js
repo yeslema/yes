@@ -1,11 +1,11 @@
 // Translations
 const translations = {
   fr: {
-    pageTitle: "Coffee Bliss | Menu Moderne",
-    logo: "Coffee Bliss",
+    pageTitle: "Coffee Coup | Menu Moderne",
+    logo: "Coffee Coup",
     tagline: "L'art du café",
     menuTitle: "Notre Carte",
-    footerText: "Tous droits réservés &copy; 2024 Coffee Bliss",
+    footerText: "Tous droits réservés &copy; 2026 Coffee Coup",
     scanQr: "Scannez pour emporter",
     // Categories
     all: "Tout",
@@ -13,14 +13,16 @@ const translations = {
     iced: "Iced Coffee",
     juice: "Jus",
     milkshake: "Milkshake",
-    mojito: "Mojito"
+    mojito: "Mojito",
+    Dessert: "Dessert",
+    Gratin: "Gratin"
   },
   ar: {
-    pageTitle: "Coffee Bliss | قائمة القهوة",
-    logo: "Coffee Bliss",
+    pageTitle: "Coffee Coup | قائمة القهوة",
+    logo: "Coffee Coup",
     tagline: "فن القهوة",
     menuTitle: "قائمتنا",
-    footerText: "جميع الحقوق محفوظة &copy; 2024 Coffee Bliss",
+    footerText: "جميع الحقوق محفوظة &copy; 2026 Coffee Coup",
     scanQr: "امسح الكود",
     // Categories
     all: "الكل",
@@ -28,14 +30,16 @@ const translations = {
     iced: "قهوة مثلجة",
     juice: "عصائر",
     milkshake: "ميلك شيك",
-    mojito: "موهيتو"
+    mojito: "موهيتو",
+    Dessert: "Dessert",
+    Gratin: "Gratin"
   },
   en: {
-    pageTitle: "Coffee Bliss | Modern Menu",
-    logo: "Coffee Bliss",
+    pageTitle: "Coffee Coup | Modern Menu",
+    logo: "Coffee Coup",
     tagline: "The Art of Coffee",
     menuTitle: "Our Menu",
-    footerText: "All Rights Reserved &copy; 2024 Coffee Bliss",
+    footerText: "All Rights Reserved &copy; 2026 Coffee Coup",
     scanQr: "Scan Menu",
     // Categories
     all: "All",
@@ -43,69 +47,81 @@ const translations = {
     iced: "Iced Coffee",
     juice: "Juices",
     milkshake: "Milkshake",
-    mojito: "Mojito"
+    mojito: "Mojito",
+    Dessert: "Dessert",
+    Gratin: "Gratin"
   }
 };
 
 // Menu Data
-const menu = [
+const defaultMenu = [
   // --- COFFEE (First as requested) ---
   {
     id: 1,
     category: "coffee",
     price: "80",
     translations: {
-      fr: { title: "Espresso", desc: "L'essence pure du café, intense et aromatique." },
-      ar: { title: "إسبريسو", desc: "جوهر القهوة النقي، قوي وغني بالنكهة." },
-      en: { title: "Espresso", desc: "The pure essence of coffee, intense and aromatic." }
+      fr: { title: "Espresso" },
+      ar: { title: "إسبريسو" },
+      en: { title: "Espresso" }
     }
   },
   {
     id: 2,
     category: "coffee",
-    price: "120",
+    price: "100",
     translations: {
-      fr: { title: "Cappuccino", desc: "Espresso équilibré avec lait chaud et mousse onctueuse." },
-      ar: { title: "كابتشينو", desc: "إسبريسو متوازن مع حليب ساخن ورغوة كريمية." },
-      en: { title: "Cappuccino", desc: "Balanced espresso with hot milk and creamy foam." }
+      fr: { title: "Cappuccino" },
+      ar: { title: "كابتشينو" },
+      en: { title: "Cappuccino" }
     }
   },
   {
     id: 3,
     category: "coffee",
-    price: "100",
+    price: "80",
     translations: {
-      fr: { title: "Café au lait", desc: "Café filtre corsé adouci par du lait chaud." },
-      ar: { title: "قهوة بالحليب", desc: "قهوة مفلترة قوية مخففة بالحليب الساخن." },
-      en: { title: "Café au lait", desc: "Bold drip coffee softened with hot milk." }
+      fr: { title: "Café au lait" },
+      ar: { title: "قهوة بالحليب" },
+      en: { title: "Café au lait" }
     }
   },
   {
     id: 4,
     category: "coffee",
-    price: "110",
+    price: "100",
     translations: {
-      fr: { title: "Café crème", desc: "Un grand classique, doux et velouté." },
-      ar: { title: "كافية كريم", desc: "كلاسيكي عظيم، ناعم ومخملي." },
-      en: { title: "Café crème", desc: "A grand classic, smooth and velvety." }
+      fr: { title: "Café crème" },
+      ar: { title: "كافية كريم" },
+      en: { title: "Café crème" }
+    }
+  },
+  {
+    id: 5,
+    category: "coffee",
+    price: "130",
+    translations: {
+      fr: { title: "Coup" },
+      ar: { title: "كو" },
+      en: { title: "Coup" }
     }
   },
 
   // --- ICED COFFEE (Second) ---
   {
-    id: 5,
+    id: 6,
     category: "iced",
-    price: "140",
+    price: "120",
     translations: {
-      fr: { title: "Iced Latte", desc: "Classique, Caramel ou Chocolat. Rafraîchissant." },
-      ar: { title: "لاتيه مثلج", desc: "كلاسيك، كراميل أو شوكولاتة. منعش." },
-      en: { title: "Iced Latte", desc: "Classic, Caramel, or Chocolate. Refreshing." }
+      fr: { title: "Iced Latte" },
+      ar: { title: "آيس لاتي" },
+      en: { title: "Iced Latte" }
     }
   },
   {
-    id: 6,
+    id: 7,
     category: "iced",
-    price: "160",
+    price: "130",
     translations: {
       fr: { title: "Spanish Latte", desc: "Espresso avec lait condensé sucré et glace." },
       ar: { title: "سبانيش لاتيه", desc: "إسبريسو مع حليب مكثف محلى وثلج." },
@@ -113,69 +129,78 @@ const menu = [
     }
   },
   {
-    id: 7,
-    category: "iced",
-    price: "150",
-    translations: {
-      fr: { title: "Iced Cappuccino", desc: "La version glacée et mousseuse du cappuccino." },
-      ar: { title: "كابتشينو مثلج", desc: "النسخة المثلجة والرغوية من الكابتشينو." },
-      en: { title: "Iced Cappuccino", desc: "The icy and frothy version of the cappuccino." }
-    }
-  },
-
-  // --- JUICES (Third) ---
-  {
     id: 8,
-    category: "juice",
-    price: "150",
+    category: "iced",
+    price: "130",
     translations: {
-      fr: { title: "Jus d'Orange - Classique", desc: "Oranges fraîchement pressées." },
-      ar: { title: "عصير برتقال - كلاسيك", desc: "برتقال طازج معصور." },
-      en: { title: "Orange Juice - Classic", desc: "Freshly squeezed oranges." }
+      fr: { title: "Iced Caramel latte", desc: "La version glacée et mousseuse du cappuccino." },
+      ar: { title: " آيس كاراميل لاتي", desc: "النسخة المثلجة والرغوية من الكابتشينو." },
+      en: { title: "Iced Caramel latte", desc: "The icy and frothy version of the cappuccino." }
     }
   },
   {
     id: 9,
-    category: "juice",
-    price: "180",
+    category: "iced",
+    price: "150",
     translations: {
-      fr: { title: "Jus d'Orange - Ananas", desc: "Mélange tropical orange et ananas." },
-      ar: { title: "عصير برتقال - أناناس", desc: "مزيج استوائي من البرتقال والأناناس." },
-      en: { title: "Orange Juice - Pineapple", desc: "Tropical mix of orange and pineapple." }
+      fr: { title: "iced Coup" },
+      ar: { title: "آيس كو " },
+      en: { title: "iced Coup" }
     }
   },
+  // --- JUICES (Third) ---
   {
     id: 10,
     category: "juice",
-    price: "180",
+    price: "100",
     translations: {
-      fr: { title: "Jus d'Orange - Mix", desc: "Cocktail d'agrumes vitaminé." },
-      ar: { title: "عصير برتقال - ميكس", desc: "كوكتيل حمضيات غني بالفيتامينات." },
-      en: { title: "Orange Juice - Mix", desc: "Vitamin-rich citrus cocktail." }
+      fr: { title: "Orange", },
+      ar: { title: " برتقال ", },
+      en: { title: "Orange", }
     }
   },
   {
     id: 11,
     category: "juice",
-    price: "200",
+    price: "100",
     translations: {
-      fr: { title: "Jus de Mangue", desc: "Mangue fraîche de saison, onctueuse et sucrée." },
-      ar: { title: "عصير مانجو", desc: "مانجو موسمية طازجة، كريمية وحلوة." },
-      en: { title: "Mango Juice", desc: "Fresh seasonal mango, creamy and sweet." }
+      fr: { title: "Queen's Fruit ", desc: "Mélange tropical orange et ananas." },
+      ar: { title: "كوينز فرويت", desc: "مزيج استوائي من البرتقال والأناناس." },
+      en: { title: "Queen's Fruit", desc: "Tropical mix of orange and pineapple." }
     }
   },
   {
     id: 12,
     category: "juice",
-    price: "220",
+    price: "120",
     translations: {
-      fr: { title: "Avocat (Banane ou Ananas)", desc: "Avocat riche mixé avec banane ou ananas au choix." },
-      ar: { title: "أفوكادو (موز أو أناناس)", desc: "أفوكادو غني ممزوج مع الموز أو الأناناس حسب الاختيار." },
-      en: { title: "Avocado (Banana or Pineapple)", desc: "Rich avocado blended with your choice of banana or pineapple." }
+      fr: { title: "Humangosaur", desc: "Cocktail d'agrumes vitaminé." },
+      ar: { title: "هيومانجوسور", desc: "كوكتيل حمضيات غني بالفيتامينات." },
+      en: { title: "Humangosaur", desc: "Vitamin-rich citrus cocktail." }
     }
   },
   {
     id: 13,
+    category: "juice",
+    price: "100",
+    translations: {
+      fr: { title: "Mangue", desc: "Mangue fraîche de saison, onctueuse et sucrée." },
+      ar: { title: " مانجو", desc: "مانجو موسمية طازجة، كريمية وحلوة." },
+      en: { title: "Mango ", desc: "Fresh seasonal mango, creamy and sweet." }
+    }
+  },
+  {
+    id: 14,
+    category: "juice",
+    price: "130",
+    translations: {
+      fr: { title: "Avocat (Banane,Date)", desc: "Avocat riche mixé avec banane ou ananas au choix." },
+      ar: { title: "أفوكادو (موز و تمر )", desc: "أفوكادو غني ممزوج مع الموز أو الأناناس حسب الاختيار." },
+      en: { title: "Avocado (Banana,Date)", desc: "Rich avocado blended with your choice of banana or pineapple." }
+    }
+  },
+  {
+    id: 15,
     category: "juice",
     price: "150",
     translations: {
@@ -185,11 +210,42 @@ const menu = [
     }
   },
 
+  {
+    id: 16,
+    category: "juice",
+    price: "100",
+    translations: {
+      fr: { title: "Avocat (Date)", desc: "Avocat riche mixé avec banane ou ananas au choix." },
+      ar: { title: "أفوكادو (التمر)", desc: "أفوكادو غني ممزوج مع الموز أو الأناناس حسب الاختيار." },
+      en: { title: "Avocado (Date)", desc: "Rich avocado blended with your choice of banana or pineapple." }
+    }
+  },
+  {
+    id: 25,
+    category: "juice",
+    price: "100",
+    translations: {
+      fr: { title: "Secret Orange", desc: "Avocat riche mixé avec banane ou ananas au choix." },
+      ar: { title: "سيكريت اورينج", desc: "كوكتيل حمضيات غني بالفيتامينات." },
+      en: { title: "Secret Orange", desc: "Rich avocado blended with your choice of banana or pineapple." }
+    }
+  },
+  {
+    id: 26,
+    category: "juice",
+    price: "100",
+    translations: {
+      fr: { title: "pasteque", desc: "Avocat riche mixé avec banane ou ananas au choix." },
+      ar: { title: "البطيخ", desc: "أفوكادو غني ممزوج مع الموز أو الأناناس حسب الاختيار." },
+      en: { title: "watermelon", desc: "Rich avocado blended with your choice of banana or pineapple." }
+    }
+  },
+
   // --- MILKSHAKE (Fourth) ---
   {
-    id: 14,
+    id: 17,
     category: "milkshake",
-    price: "180",
+    price: "150",
     translations: {
       fr: { title: "Milkshake Chocolat", desc: "Crème glacée chocolat, lait frais et coulis chocolat." },
       ar: { title: "ميلك شيك شوكولاتة", desc: "آيس كريم شوكولاتة، حليب طازج وصوص الشوكولاتة." },
@@ -197,9 +253,9 @@ const menu = [
     }
   },
   {
-    id: 15,
+    id: 18,
     category: "milkshake",
-    price: "190",
+    price: "150",
     translations: {
       fr: { title: "Milkshake Fraise", desc: "Fraises fraîches mixées avec glace vanille." },
       ar: { title: "ميلك شيك فراولة", desc: "فراولة طازجة ممزوجة مع آيس كريم فانيليا." },
@@ -207,58 +263,97 @@ const menu = [
     }
   },
   {
-    id: 16,
+    id: 19,
     category: "milkshake",
-    price: "200",
+    price: "150",
     translations: {
-      fr: { title: "Milkshake Meringue", desc: "Onctueux avec des éclats de meringue croquante." },
-      ar: { title: "ميلك شيك مرانج", desc: "كريمي مع قطع الميرانغ المقرمشة." },
-      en: { title: "Meringue Milkshake", desc: "Creamy with crunchy meringue shards." }
+      fr: { title: "Milkshake Vanilla" },
+      ar: { title: "ميلك شيك فانيليا" },
+      en: { title: "Vanilla Milkshake" }
     }
   },
 
   // --- MOJITO (Last) ---
   {
-    id: 17,
-    category: "mojito",
-    price: "130",
-    translations: {
-      fr: { title: "Mojito Classique", desc: "Citron vert, menthe fraîche et soda pétillant." },
-      ar: { title: "موهيتو كلاسيك", desc: "ليمون أخضر، نعناع طازج وصودا فوارة." },
-      en: { title: "Classic Mojito", desc: "Lime, fresh mint, and sparkling soda." }
-    }
-  },
-  {
-    id: 18,
-    category: "mojito",
-    price: "140",
-    translations: {
-      fr: { title: "Mojito Fraise", desc: "La fraîcheur du mojito avec une touche de fraise." },
-      ar: { title: "موهيتو فراولة", desc: "انتعاش الموهيتو مع لمسة من الفراولة." },
-      en: { title: "Strawberry Mojito", desc: "Mojito freshness with a touch of strawberry." }
-    }
-  },
-  {
-    id: 19,
-    category: "mojito",
-    price: "140",
-    translations: {
-      fr: { title: "Mojito Mangue", desc: "Exotique et parfumé." },
-      ar: { title: "موهيتو مانجو", desc: "غريب ومعطر." },
-      en: { title: "Mango Mojito", desc: "Exotic and aromatic." }
-    }
-  },
-  {
     id: 20,
     category: "mojito",
+    price: "100",
+    translations: {
+      fr: { title: "Mojito " },
+      ar: { title: "موهيتو " },
+      en: { title: " Mojito" }
+    }
+  },
+  {
+    id: 21,
+    category: "mojito",
+    price: "120",
+    translations: {
+      fr: { title: "Mojito Mangue" },
+      ar: { title: "موهيتو مانجو" },
+      en: { title: "Mango Mojito" }
+    }
+  },
+  {
+    id: 22,
+    category: "mojito",
+    price: "100",
+    translations: {
+      fr: { title: "Mojito Blue" },
+      ar: { title: "موهيتو أزرق" },
+      en: { title: "Blue Mojito" }
+    }
+  },
+
+  {
+    id: 23,
+    category: "Dessert",
+    price: "80",
+    translations: {
+      fr: { title: "Dessert jenga", desc: "Avocat riche mixé avec banane ou ananas au choix." },
+      ar: { title: "حلوى جينجا", desc: "أفوكادو غني ممزوج مع الموز أو الأناناس حسب الاختيار." },
+      en: { title: "Dessert jenga", desc: "Rich avocado blended with your choice of banana or pineapple." }
+    }
+  },
+  {
+    id: 24,
+    category: "Gratin",
     price: "150",
     translations: {
-      fr: { title: "Mojito Blue", desc: "Un océan de fraîcheur au sirop de curaçao bleu." },
-      ar: { title: "موهيتو أزرق", desc: "محيط من الانتعاش مع شراب الكوراساو الأزرق." },
-      en: { title: "Blue Mojito", desc: "An ocean of freshness with blue curacao syrup." }
+      fr: { title: "Mini Gratin" },
+      ar: { title: "جراتين صغيرة" },
+      en: { title: "Mini Gratin" }
+    }
+  },
+  {
+    id: 25,
+    category: "Gratin",
+    price: "250",
+    translations: {
+      fr: { title: "Grande Gratin" },
+      ar: { title: "جراتين كبير" },
+      en: { title: "Gr Gratin" }
+    }
+  },
+  {
+    id: 27,
+    category: "Dessert",
+    price: "150",
+    translations: {
+      fr: { title: "Dessert ganacho" },
+      ar: { title: "حلوى جاناتسو" },
+      en: { title: "Dessert ganacho" }
     }
   }
 ];
+
+// Load from LocalStorage or use default
+let menu = JSON.parse(localStorage.getItem('restaurantMenuItems')) || defaultMenu;
+
+// Save if not exists (first load)
+if (!localStorage.getItem('restaurantMenuItems')) {
+  localStorage.setItem('restaurantMenuItems', JSON.stringify(menu));
+}
 
 // App State
 let currentLang = 'fr'; // Default requested by user
@@ -321,15 +416,16 @@ function displayMenuItems(menuItems) {
     const info = item.translations[currentLang];
     const itemNum = String(item.id).padStart(2, '0');
 
-    return `<article class="menu-item fade-in">
+    return `<article class="menu-item fade-in ${item.isSeasonier ? 'seasonier-active' : ''}">
           <div class="item-info">
             <header class="item-header">
-              <h4><span class="item-num">${itemNum}.</span> ${info.title}</h4>
+              <h4>
+                <span class="item-num">${itemNum}.</span> 
+                ${info.title}
+                ${item.isSeasonier ? '<span class="seasonier-badge">Seasonier</span>' : ''}
+              </h4>
               <h4 class="price">${item.price} <span class="currency">MRU</span></h4>
             </header>
-            <p class="item-text">
-              ${info.desc}
-            </p>
           </div>
         </article>`;
   });
@@ -337,14 +433,32 @@ function displayMenuItems(menuItems) {
   sectionCenter.innerHTML = displayMenu;
 }
 
+// Default Categories
+const defaultCategories = [
+  { id: 'all', fr: "Tout", ar: "الكل", en: "All" },
+  { id: 'coffee', fr: "Café", ar: "قهوة", en: "Coffee" },
+  { id: 'iced', fr: "Iced Coffee", ar: "قهوة مثلجة", en: "Iced Coffee" },
+  { id: 'juice', fr: "Jus", ar: "عصائر", en: "Juices" },
+  { id: 'milkshake', fr: "Milkshake", ar: "ميلك شيك", en: "Milkshake" },
+  { id: 'mojito', fr: "Mojito", ar: "موهيتو", en: "Mojito" },
+  { id: 'Dessert', fr: "Dessert", ar: "Dessert", en: "Dessert" },
+  { id: 'Gratin', fr: "Gratin", ar: "Gratin", en: "Gratin" }
+];
+
+// Load Categories
+let categoriesList = JSON.parse(localStorage.getItem('restaurantCategories')) || defaultCategories;
+if (!localStorage.getItem('restaurantCategories')) {
+  localStorage.setItem('restaurantCategories', JSON.stringify(categoriesList));
+}
+
+
 // Category Buttons
 function displayMenuButtons() {
-  const categories = ["all", "coffee", "iced", "juice", "milkshake", "mojito"];
-
-  const categoryBtns = categories
-    .map(function (category) {
-      const categoryName = translations[currentLang][category];
-      return `<button type="button" class="filter-btn" data-id="${category}">
+  const categoryBtns = categoriesList
+    .map(function (cat) {
+      // Use helper to safely get translation or fallback
+      const categoryName = cat[currentLang] || cat.fr || cat.id;
+      return `<button type="button" class="filter-btn" data-id="${cat.id}">
           ${categoryName}
         </button>`;
     })

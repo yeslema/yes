@@ -231,10 +231,6 @@ body[dir="rtl"] .lang-switch-container {
   justify-content: space-between;
   align-items: flex-end;
   /* Align price to bottom of title line */
-  margin-bottom: 0.5rem;
-  border-bottom: 1px dotted var(--clr-border);
-  /* Dashed line leader effect placeholder */
-  padding-bottom: 0.5rem;
 }
 
 .item-header h4 {
@@ -273,13 +269,7 @@ body[dir="rtl"] .item-num {
   vertical-align: super;
 }
 
-.item-text {
-  color: var(--clr-text-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-top: 0.25rem;
-  font-style: italic;
-}
+
 
 /* QR Button */
 .qr-btn {
@@ -392,4 +382,49 @@ body[dir="rtl"] .item-num {
   body[dir="rtl"] .lang-switch-container {
     left: auto;
   }
+}
+
+/* Login Button Header */
+.login-btn-link {
+  background: transparent;
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+  text-decoration: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  margin-inline-start: 10px;
+  /* Logical property for LTR/RTL */
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.login-btn-link:hover {
+  background: var(--clr-primary);
+  color: white;
+}
+
+/* Seasonier Badge */
+.seasonier-badge {
+  background: #fae827;
+  /* Burnt Orange */
+  color: rgb(19, 17, 17);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin: 0 5px;
+  vertical-align: middle;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Seasonier Item Highlight */
+.seasonier-active {
+  border: 1px solid #c5d300;
+  box-shadow: 0 4px 10px rgba(211, 84, 0, 0.15);
+}
+
+.seasonier-active:hover {
+  border-color: #ebf435;
 }

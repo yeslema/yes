@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Coffee Coup</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin Specific Styles */
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--clr-border);
+            margin-bottom: 2rem;
+        }
+
+        .admin-title {
+            font-family: var(--font-display);
+            color: var(--clr-primary);
+        }
+
+        .btn-logout {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--clr-text-light);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--clr-primary);
+            border-bottom-color: var(--clr-primary);
+        }
+
+        /* Controls */
+        .admin-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .btn-add {
+            background: var(--clr-secondary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-add:hover {
+            background: var(--clr-primary);
+        }
+
+        /* Tables */
+        .admin-table-container {
+            overflow-x: auto;
+            background: var(--clr-card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        th {
+            background-color: var(--clr-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Action Buttons */
+        .btn-icon {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .btn-delete {
+            color: #e74c3c;
+        }
+
+        .btn-delete:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .admin-modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-admin-modal {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            font-family: var(--font-main);
+        }
+
+        .btn-save-modal {
+            width: 100%;
+            background: var(--clr-primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .section-view {
+            display: none;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        /* Save Banner */
+        .save-banner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--clr-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"> <span> Coup </span> <small style="font-size: 1rem; color: #666;">Admin</small></h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="admin-header">
+            <h2 class="admin-title">Dashboard</h2>
+            <div>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('products')">Products</button>
+            <button class="tab-btn" onclick="switchTab('categories')">Categories</button>
+        </div>
+
+        <!-- PRODUCTS SECTION -->
+        <div id="view-products" class="section-view active">
+            <div class="admin-controls">
+                <button class="btn-add" onclick="openProductModal()">+ Add Product</button>
+            </div>
+            <div class="admin-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name (FR)</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Seasonier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-table-body">
+                        <!-- JS Rendered -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CATEGORIES SECTION -->
+        <div id="view-categories" class="section-view">
+            <div class="admin-controls">
+                <button class="btn-add" onclick="openCategoryModal()">+ Add Category</button>
+            </div>
+            <div class="admin-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID (Key)</th>
+                            <th>Name (FR)</th>
+                            <th>Name (AR)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="category-table-body">
+                        <!-- JS Rendered -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+    <div id="product-modal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-admin-modal" onclick="closeModals()">&times;</span>
+            <h3 id="product-modal-title">Add/Edit Product</h3>
+            <form id="product-form">
+                <input type="hidden" id="p-id">
+
+                <label class="form-label">Name (FR) *</label>
+                <input type="text" id="p-name-fr" class="form-input" required>
+
+                <label class="form-label">Price (MRU) *</label>
+                <input type="number" id="p-price" class="form-input" required>
+
+                <label class="form-label">Category *</label>
+                <select id="p-category" class="form-select" required></select>
+
+                <label class="form-label">Description (FR) - Optional</label>
+                <input type="text" id="p-desc-fr" class="form-input">
+
+                <div style="margin-top: 1rem;">
+                    <label>
+                        <input type="checkbox" id="p-seasonier"> Seasonier
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-save-modal">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CATEGORY MODAL -->
+    <div id="category-modal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-admin-modal" onclick="closeModals()">&times;</span>
+            <h3 id="category-modal-title">Add Category</h3>
+            <form id="category-form">
+                <label class="form-label">Category ID (Unique, e.g. 'soup') *</label>
+                <input type="text" id="c-id" class="form-input" required placeholder="english_key">
+
+                <label class="form-label">Name (French) *</label>
+                <input type="text" id="c-fr" class="form-input" required>
+
+                <label class="form-label">Name (Arabic) *</label>
+                <input type="text" id="c-ar" class="form-input" required>
+
+                <label class="form-label">Name (English)</label>
+                <input type="text" id="c-en" class="form-input">
+
+                <button type="submit" class="btn-save-modal">Save Category</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="save-banner" class="save-banner">Changes Saved!</div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
